@@ -79,15 +79,6 @@ function blob_fixup() {
     vendor/etc/camera/ginkgo_s5kgm1_sunny_i_chromatix.xml)
         sed -i "s/ginkgo_s5kgm1_ofilm_ii_postproc/ginkgo_s5kgm1_sunny_i_postproc/g" "${2}"
         ;;
-
-    vendor/bin/mlipayd@1.1)
-        patchelf --remove-needed vendor.xiaomi.hardware.mtdservice@1.0.so "${2}"
-        ;;
-
-    vendor/lib64/libmlipay.so | vendor/lib64/libmlipay@1.1.so)
-        patchelf --remove-needed vendor.xiaomi.hardware.mtdservice@1.0.so "${2}"
-        sed -i "s|/system/etc/firmware|/vendor/firmware\x0\x0\x0\x0|g" "${2}"
-        ;;
     esac
 }
 
