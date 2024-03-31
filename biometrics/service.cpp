@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-#define LOG_TAG "android.hardware.biometrics.fingerprint@2.1-service.ginkgo"
+#define LOG_TAG "android.hardware.biometrics.fingerprint@2.1-service.realme_trinket"
 
 #include <android/log.h>
 #include <hidl/HidlTransportSupport.h>

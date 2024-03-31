@@ -17,8 +17,8 @@
 
 set -e
 
-DEVICE=ginkgo
-VENDOR=xiaomi
+DEVICE=realme_trinket
+VENDOR=realme
 
 # Load extract_utils and do some sanity checks
 MY_DIR="${BASH_SOURCE%/*}"

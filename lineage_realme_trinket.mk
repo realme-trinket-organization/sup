@@ -22,20 +22,21 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_p.mk)
 # Inherit some common Lineage stuff
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
-# Inherit from ginkgo device
+# Inherit from realme_trinket device
 $(call inherit-product, $(LOCAL_PATH)/device.mk)
 
-BOARD_VENDOR := xiaomi
-PRODUCT_BRAND := Xiaomi
-PRODUCT_DEVICE := ginkgo
-PRODUCT_MANUFACTURER := Xiaomi
-PRODUCT_NAME := lineage_ginkgo
-PRODUCT_MODEL := Redmi Note 8
+BOARD_VENDOR := realme
+PRODUCT_BRAND := Realme
+PRODUCT_DEVICE := realme_trinket
+PRODUCT_MANUFACTURER := Realme
+PRODUCT_NAME := lineage_realme_trinket
+PRODUCT_MODEL := Realme Trinket Series
 
-PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
+PRODUCT_GMS_CLIENTID_BASE := android-realme
 
-TARGET_VENDOR_PRODUCT_NAME := ginkgo
+TARGET_VENDOR_PRODUCT_NAME := realme_trinket
 
+# TODO: Correct build fp and desc on libinit
 PRODUCT_BUILD_PROP_OVERRIDES += \
     PRIVATE_BUILD_DESC="ginkgo-user 10 QKQ1.200114.002 20.7.9 release-keys "
 

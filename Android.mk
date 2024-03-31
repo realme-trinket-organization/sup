@@ -16,7 +16,7 @@
 
 LOCAL_PATH := $(call my-dir)
 
-ifeq ($(TARGET_DEVICE),ginkgo)
+ifeq ($(TARGET_DEVICE),realme_trinket)
 
 include $(CLEAR_VARS)
 

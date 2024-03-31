@@ -20,8 +20,8 @@ import os
 import sys
 from hashlib import sha1
 
-DEVICE = 'ginkgo'
-VENDOR = 'xiaomi'
+DEVICE = 'realme_trinket'
+VENDOR = 'realme'
 VENDOR_PATH = os.path.join(
     *['..', '..', '..', 'vendor', VENDOR, DEVICE, 'proprietary'])
 

@@ -17,8 +17,8 @@
 
 set -e
 
-DEVICE=ginkgo
-VENDOR=xiaomi
+DEVICE=realme_trinket
+VENDOR=realme
 
 INITIAL_COPYRIGHT_YEAR=2019
 

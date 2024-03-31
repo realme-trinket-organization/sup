@@ -21,7 +21,7 @@
 # definition file).
 #
 
-DEVICE_PATH := device/xiaomi/ginkgo
+DEVICE_PATH := device/realme/realme_trinket
 
 # Inherit properties
 $(call inherit-product, $(DEVICE_PATH)/properties.mk)
@@ -97,7 +97,7 @@ PRODUCT_PACKAGES += \
 
 # Biometrics
 PRODUCT_PACKAGES += \
-    android.hardware.biometrics.fingerprint@2.1-service.ginkgo
+    android.hardware.biometrics.fingerprint@2.1-service.realme_trinket
 
 # Camera
 PRODUCT_PACKAGES += \
@@ -267,7 +267,7 @@ PRODUCT_COPY_FILES += \
 
 # Lights
 PRODUCT_PACKAGES += \
-    android.hardware.light@2.0-service.xiaomi_trinket
+    android.hardware.light@2.0-service.realme_trinket
 
 # LiveDisplay native
 PRODUCT_PACKAGES += \
@@ -523,4 +523,4 @@ PRODUCT_BOOT_JARS += \
     WfdCommon
 
 # Inherit the proprietary files
-$(call inherit-product, vendor/xiaomi/ginkgo/ginkgo-vendor.mk)
+$(call inherit-product, vendor/realme/realme_trinket/realme_trinket-vendor.mk)

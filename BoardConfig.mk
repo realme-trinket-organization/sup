@@ -25,7 +25,7 @@
 BUILD_BROKEN_DUP_RULES := true
 
 # Assert
-TARGET_OTA_ASSERT_DEVICE := ginkgo,willow
+TARGET_OTA_ASSERT_DEVICE := RMX1911,RMX1925,RMX1927,RMX2030
 
 # Boot animation
 TARGET_SCREEN_HEIGHT := 2340
@@ -68,9 +68,9 @@ BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 BOARD_KERNEL_SEPARATED_DTBO := true
 BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
 TARGET_KERNEL_ARCH := arm64
-TARGET_KERNEL_CONFIG := vendor/ginkgo-perf_defconfig
+TARGET_KERNEL_CONFIG := vendor/realme-trinket_defconfig
 TARGET_KERNEL_HEADER_ARCH := arm64
-TARGET_KERNEL_SOURCE := kernel/xiaomi/sm6125
+TARGET_KERNEL_SOURCE := kernel/realme/sm6125
 TARGET_KERNEL_CLANG_COMPILE := true
 
 # QCOM hardware
@@ -149,8 +149,8 @@ ODM_MANIFEST_SKUS += \
 ODM_MANIFEST_NFC_FILES := $(DEVICE_PATH)/manifest_nfc.xml
 
 # Init
-TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):libinit_ginkgo
-TARGET_RECOVERY_DEVICE_MODULES := libinit_ginkgo
+TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):libinit_realme_trinket
+TARGET_RECOVERY_DEVICE_MODULES := libinit_realme_trinket
 
 # Keystore
 TARGET_PROVIDES_KEYMASTER := true
@@ -233,4 +233,4 @@ WIFI_HIDL_FEATURE_DUAL_INTERFACE := true
 WPA_SUPPLICANT_VERSION := VER_0_8_X
 
 # Inherit the proprietary files
-include vendor/xiaomi/ginkgo/BoardConfigVendor.mk
+include vendor/realme/realme_trinket/BoardConfigVendor.mk
