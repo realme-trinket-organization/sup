@@ -17,7 +17,7 @@
 
 set -e
 
-DEVICE_COMMON=sm6125-common
+DEVICE=ginkgo
 VENDOR=xiaomi
 
 INITIAL_COPYRIGHT_YEAR=2019
@@ -35,47 +35,13 @@ if [ ! -f "$HELPER" ]; then
 fi
 . "$HELPER"
 
-# Initialize the common helper
-setup_vendor "$DEVICE_COMMON" "$VENDOR" "$LINEAGE_ROOT" true
+# Initialize the helper
+setup_vendor "$DEVICE" "$VENDOR" "$LINEAGE_ROOT"
 
 # Copyright headers and guards
-write_headers "laurel_sprout ginkgo laurus"
+write_headers
 
 write_makefiles "$MY_DIR"/proprietary-files.txt true
 
 # Finish
 write_footers
-
-if [ -s "$MY_DIR"/../$DEVICE_SPECIFIED_COMMON/proprietary-files.txt ]; then
-    DEVICE_COMMON=$DEVICE_SPECIFIED_COMMON
-
-    # Reinitialize the helper for device specified common
-    INITIAL_COPYRIGHT_YEAR="$DEVICE_BRINGUP_YEAR"
-    setup_vendor "$DEVICE_SPECIFIED_COMMON" "$VENDOR" "$LINEAGE_ROOT" true
-
-    # Copyright headers and guards
-    write_headers "$DEVICE_SPECIFIED_COMMON_DEVICE"
-
-    # The standard device specified common blobs
-    write_makefiles "$MY_DIR"/../$DEVICE_SPECIFIED_COMMON/proprietary-files.txt true
-
-    # We are done!
-    write_footers
-
-    DEVICE_COMMON=sm6125-common
-fi
-
-if [ -s "$MY_DIR"/../$DEVICE/proprietary-files.txt ]; then
-    # Reinitialize the helper for device
-    INITIAL_COPYRIGHT_YEAR="$DEVICE_BRINGUP_YEAR"
-    setup_vendor "$DEVICE" "$VENDOR" "$LINEAGE_ROOT" false
-
-    # Copyright headers and guards
-    write_headers
-
-    # The standard device blobs
-    write_makefiles "$MY_DIR"/../$DEVICE/proprietary-files.txt true
-
-    # We are done!
-    write_footers
-fi

@@ -17,7 +17,7 @@
 
 set -e
 
-DEVICE_COMMON=sm6125-common
+DEVICE=ginkgo
 VENDOR=xiaomi
 
 # Load extract_utils and do some sanity checks
@@ -25,6 +25,7 @@ MY_DIR="${BASH_SOURCE%/*}"
 if [[ ! -d "$MY_DIR" ]]; then MY_DIR="$PWD"; fi
 
 LINEAGE_ROOT="$MY_DIR"/../../..
+DEVICE_BLOB_ROOT="$LINEAGE_ROOT"/vendor/"$VENDOR"/"$DEVICE"/proprietary
 
 HELPER="$LINEAGE_ROOT"/vendor/lineage/build/tools/extract_utils.sh
 if [ ! -f "$HELPER" ]; then
@@ -62,6 +63,23 @@ fi
 function blob_fixup() {
     case "${1}" in
 
+    # Remove vtcamera for ginkgo
+    vendor/etc/camera/camera_config.xml)
+        gawk -i inplace '{ p = 1 } /<CameraModuleConfig>/{ t = $0; while (getline > 0) { t = t ORS $0; if (/ginkgo_vtcamera/) p = 0; if (/<\/CameraModuleConfig>/) break } $0 = t } p' "${2}"
+        ;;
+
+    vendor/etc/camera/ginkgo_s5kgm1_sunny_i_chromatix.xml)
+        sed -i "s/ginkgo_s5kgm1_sunny_i/ginkgo_s5kgm1_ofilm_ii/g" "${2}"
+        ;;
+    
+    vendor/etc/camera/ginkgo_s5kgm1_sunny_i_chromatix.xml)
+        sed -i "s/ginkgo_s5kgm1_ofilm_ii_common/ginkgo_s5kgm1_sunny_i_common/g" "${2}"
+        ;;
+
+    vendor/etc/camera/ginkgo_s5kgm1_sunny_i_chromatix.xml)
+        sed -i "s/ginkgo_s5kgm1_ofilm_ii_postproc/ginkgo_s5kgm1_sunny_i_postproc/g" "${2}"
+        ;;
+
     vendor/bin/mlipayd@1.1)
         patchelf --remove-needed vendor.xiaomi.hardware.mtdservice@1.0.so "${2}"
         ;;
@@ -73,24 +91,9 @@ function blob_fixup() {
     esac
 }
 
-# Initialize the common helper
-setup_vendor "$DEVICE_COMMON" "$VENDOR" "$LINEAGE_ROOT" true $CLEAN_VENDOR
+# Initialize the helper
+setup_vendor "$DEVICE" "$VENDOR" "$LINEAGE_ROOT" false $CLEAN_VENDOR
 
-extract "$MY_DIR"/proprietary-files.txt "$SRC" \
-    "${KANG}" --section "${SECTION}"
-
-if [ -s "$MY_DIR"/../$DEVICE_SPECIFIED_COMMON/proprietary-files.txt ];then
-    # Reinitialize the helper for device specified common
-    setup_vendor "$DEVICE_SPECIFIED_COMMON" "$VENDOR" "$LINEAGE_ROOT" false "$CLEAN_VENDOR"
-    extract "$MY_DIR"/../$DEVICE_SPECIFIED_COMMON/proprietary-files.txt "$SRC" \
-    "${KANG}" --section "${SECTION}"
-fi
-
-if [ -s "$MY_DIR"/../$DEVICE/proprietary-files.txt ]; then
-    # Reinitialize the helper for device
-    setup_vendor "$DEVICE" "$VENDOR" "$LINEAGE_ROOT" false "$CLEAN_VENDOR"
-    extract "$MY_DIR"/../$DEVICE/proprietary-files.txt "$SRC" \
-    "${KANG}" --section "${SECTION}"
-fi
+extract "$MY_DIR"/proprietary-files.txt "$SRC" "${KANG}" --section "${SECTION}"
 
 "$MY_DIR"/setup-makefiles.sh
