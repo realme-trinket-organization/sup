@@ -1,42 +1,110 @@
-# Unified Device Tree for Redmi Note 8/8T (ginkgo/willow)
-
-The Redmi Note 8 (codenamed "ginkgo") is a mid-range smartphone from Xiaomi. It was announced in August 2019 and released in October 2019.
-
-The Redmi Note 8T (codenamed "willow") is a mid-range smartphone from Xiaomi. Unlike Redmi Note 8, it does not have a notification LED but instead has a NFC communication module by NXP. It was announced and released in November 2019.
+# Unified Device Tree for Realme 5/5i/5s (realme_trinket)
 
 ## Device specifications
 
-| Feature                 | Specification                                                   |
-| :---------------------- | :---------------------------------------------------------------|
-| Chipset                 | Qualcomm SM6125 Snapdragon 665 (11 nm)                          |
-| CPU                     | Octa-core (4x2.0 GHz Kryo 260 Gold & 4x1.8 GHz Kryo 260 Silver) |
-| GPU                     | Adreno 610                                                      |
-| Memory                  | 3/4/6 GB                                                        |
-| Shipped Android Version | 9.0 (MIUI 11)                                                   |
-| Storage                 | 32/64/128 GB eMMC                                               |
-| SIM                     | Dual SIM (Nano-SIM, dual stand-by)                              |
-| MicroSD                 | Up to 256 GB                                                    |
-| Battery                 | 4000 mAh Li-Po (non-removable)                                  |
-| Dimensions              | 158.3 x 75.3 x 8.4 mm                                           |
-| Display                 | 6.3 inch, 1080 x 2340 (19.5:9 ratio)                            |
-| Rear Camera 1           | 48 MP, f/1.8, 26mm (wide), 1/2.0", 0.8µm, PDAF                  |
-| Rear Camera 2           | 8 MP, f/2.2, 13mm (ultrawide), 1/4.0", 1.12µm                   |
-| Rear Camera 3           | 2 MP, f/2.4, (macro), 1/5.0", 1.75µm                            |
-| Rear Camera 4           | 2 MP, f/2.4, (depth)                                            |
-| Front Camera            | 13 MP, f/2.0, (wide), 1/3.1", 1.12µm                            |
-| Fingerprint             | Rear-mounted                                                    |
-| Sensors                 | Accelerometer, Gyro, Proximity, Compass                         |
+<table>
+  <tr>
+    <th colspan="2">Feature</th>
+    <th>5</th>
+    <th>5i</th>
+    <th>5s</th>
+  </tr>
+  <tr>
+    <td colspan="2" align="center">Chipset</td>
+    <td colspan="3" align="center">Qualcomm SM6125 Snapdragon 665 (11 nm)</td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center">CPU</td>
+    <td colspan="3" align="center">Octa-core (4x2.0 GHz Kryo 260 Gold & 4x1.8 GHz Kryo 260 Silver)</td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center">GPU</td>
+    <td colspan="3" align="center">Adreno 610</td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center">Shipped Android Version</td>
+    <td colspan="3" align="center">9.0 (ColorOS 6.0)</td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center">SIM</td>
+    <td colspan="3" align="center">Dual SIM (Nano-SIM, dual stand-by)</td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center">MicroSD</td>
+    <td colspan="3" align="center">Up to 256 GB</td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center">Battery</td>
+    <td colspan="3" align="center">5000 mAh (non-removable)</td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center">Sensors</td>
+    <td colspan="3" align="center">Accelerometer, Gyro, Proximity, Compass</td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center">Storage Type</td>
+    <td colspan="3" align="center">eMMC</td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center">RAM</td>
+    <td colspan="2" align="center">3/4 GB</td>
+    <td align="center">4 GB</td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center">Storage</td>
+    <td colspan="2" align="center">32/64/128 GB</td>
+    <td align="center">64/128GB</td>
+  </tr>
+  <tr>
+    <td rowspan="5" align="center">Camera</td>
+    <td>Wide</td>
+    <td colspan="2">12 MP, f/1.8, (wide), 1/2.9", 1.25µm, PDAF</td>
+    <td>48 MP, f/1.8, (wide), 1/2.0", 0.8µm, PDAF</td>
+  </tr>
+  <tr>
+    <td>Ultrawide</td>
+    <td align="center">8 MP, f/2.2, 13mm</td>
+    <td align="center">8 MP, f/2.3, 13mm</td>
+    <td align="center">8 MP, f/2.2, 13mm</td>
+  </tr>
+  <tr>
+    <td>Macro</td>
+    <td colspan="3" align="center">2 MP, f/2.4</td>
+  </tr>
+  <tr>
+    <td>Depth</td>
+    <td colspan="3" align="center">2 MP, f/2.4</td>
+  </tr>
+  <tr>
+    <td>Front</td>
+    <td align="center">13 MP, f/2.0, 26mm (wide), 1/3.1", 1.12µm</td>
+    <td align="center">8 MP, f/2.0</td>
+    <td align="center">13 MP, f/2.0, 26mm (wide), 1/3.1", 1.12µm</td>
+  </tr>
+  <tr>
+    <td rowspan="2">Fingerprint</td>
+    <td>Location</td>
+    <td colspan="3" align="center">Rear-mounted</td>
+  </tr>
+  <tr>
+    <td>Vendor</td>
+    <td align="center">FPC</td>
+    <td align="center">Egis</td>
+    <td align="center">FPC</td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center">NFC</td>
+    <td align="center">Yes (RU Only - PN553)</td>
+    <td colspan="2" align="center">No</td>
+  </tr>
+</table>
 
-
-## Device picture
-
-![Xiaomi Redmi Note 8](https://i.imgur.com/2gtxk3X.jpg)
 
 ## Copyright
 
 ```
 #
-# Copyright (C) 2019 The LineageOS Project
+# Copyright (C) 2024 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
