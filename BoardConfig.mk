@@ -58,5 +58,12 @@ TARGET_COPY_OUT_VENDOR := vendor
 TARGET_BOARD_PLATFORM := trinket
 BOARD_USES_QCOM_HARDWARE := true
 
+# Recovery
+TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.qcom
+TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888
+TARGET_USERIMAGES_USE_F2FS := true
+TARGET_USERIMAGES_USE_EXT4 := true
+TARGET_USES_MKE2FS := true
+
 # Inherit the proprietary files
 include vendor/realme/realme_trinket/BoardConfigVendor.mk
