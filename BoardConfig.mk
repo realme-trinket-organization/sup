@@ -14,5 +14,13 @@ TARGET_CPU_ABI2 :=
 TARGET_CPU_VARIANT := generic
 TARGET_CPU_VARIANT_RUNTIME := kryo300
 
+# Bootloader
+TARGET_BOOTLOADER_BOARD_NAME := trinket
+TARGET_NO_BOOTLOADER := true
+
+# Platform
+TARGET_BOARD_PLATFORM := trinket
+BOARD_USES_QCOM_HARDWARE := true
+
 # Inherit the proprietary files
 include vendor/realme/realme_trinket/BoardConfigVendor.mk
