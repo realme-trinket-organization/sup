@@ -34,6 +34,11 @@ BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
 TARGET_BOOTLOADER_BOARD_NAME := trinket
 TARGET_NO_BOOTLOADER := true
 
+# Kernel
+BOARD_KERNEL_IMAGE_NAME := Image
+TARGET_KERNEL_SOURCE := kernel/realme/realme_trinket
+TARGET_KERNEL_CONFIG := vendor/realme-trinket_defconfig
+
 # Platform
 TARGET_BOARD_PLATFORM := trinket
 BOARD_USES_QCOM_HARDWARE := true
