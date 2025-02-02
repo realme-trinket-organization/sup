@@ -1,1 +1,6 @@
 allow init adsprpcd_file:file mounton;
+
+r_dir_file(init, vendor_proc_fingerprint)
+r_dir_file(init, vendor_proc_oppo_version)
+
+set_prop(vendor_init, oppo_fingerprint_prop)

@@ -5,6 +5,19 @@ audio_hal.in_period_size                u:object_r:vendor_default_prop:s0
 audio_hal.period_multiplier             u:object_r:vendor_default_prop:s0
 persist.audio.fluence.voicecomm         u:object_r:vendor_default_prop:s0
 
+# Camera
+oppo.camera.                            u:object_r:vendor_camera_prop:s0
+persist.camera.gyro.disable             u:object_r:vendor_camera_prop:s0
+persist.sys.assert.panic                u:object_r:vendor_camera_prop:s0
+persist.sys.assert.panic.camera         u:object_r:vendor_camera_prop:s0
+ro.camera.platform.660lite              u:object_r:vendor_camera_prop:s0
+ro.product.wtconfig                     u:object_r:vendor_camera_prop:s0
+ro.product.prjversion                   u:object_r:vendor_camera_prop:s0
+vendor.oppo.camera.                     u:object_r:vendor_camera_prop:s0
+
+# Fingerprint
+vendor.fp.device                        u:object_r:oppo_fingerprint_prop:s0
+
 # Media
 gpu.stats.debug.level                   u:object_r:vendor_default_prop:s0
 
@@ -14,3 +27,4 @@ sys.thermal.                            u:object_r:thermal_engine_prop:s0
 
 # Wlan
 persist.vendor.wigig.npt.enable         u:object_r:vendor_default_prop:s0
+vendor.oppo.wifi.check.persist          u:object_r:vendor_wifi_prop:s0
